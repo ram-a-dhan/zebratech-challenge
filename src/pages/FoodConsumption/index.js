@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Grid, Box, Paper, Typography } from '@material-ui/core'
+import Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
+import { generateHighchartsData, dayMonthSort } from './helper';
 
 const FoodConsumption = () => {
   const [dailyFoodConsumption, setDailyFoodConsumption] = useState([])
@@ -8,13 +11,18 @@ const FoodConsumption = () => {
     fetch('/api/food-consumption.json')
       .then(res => res.json())
       .then(res => {
-        setDailyFoodConsumption(res.data.foodConsumption.daily)
+        const sorted = dayMonthSort(res.data.foodConsumption.daily)
+        setDailyFoodConsumption(sorted)
       })
   }, [])
 
-  // useEffect(() => {
-  //   if (dailyFoodConsumption.length) console.log(dailyFoodConsumption);
-  // }, [dailyFoodConsumption])
+  useEffect(() => {
+    if (dailyFoodConsumption.length) {
+      // console.log(
+      //   dailyFoodConsumption[0]
+      // )
+    }
+  }, [dailyFoodConsumption])
 
   return (
     <Grid spacing={3} container>
@@ -24,7 +32,10 @@ const FoodConsumption = () => {
             <Typography variant="h6" gutterBottom>
               Daily Food Consumption
             </Typography>
-            
+            <HighchartsReact
+              highcharts={Highcharts}
+              options={generateHighchartsData(dailyFoodConsumption)}
+            />
           </Box>
         </Box>
       </Grid>

@@ -1,0 +1,43 @@
+{
+  "data": {
+    "foodConsumption": {
+      "daily": [
+        {
+          "day": 1,
+          "month": 3,
+          "year": 2019,
+          "animal": "MACAN",
+          "meat": 5335.400000000004
+        },
+        {
+          "day": 1,
+          "month": 3,
+          "year": 2019,
+          "animal": "BERUANG",
+          "meat": 3447.3000000000006
+        },
+        {
+          "day": 1,
+          "month": 3,
+          "year": 2019,
+          "animal": "SINGA",
+          "meat": 29861.699999999946
+        },
+        {
+          "day": 1,
+          "month": 3,
+          "year": 2019,
+          "animal": "MACAN",
+          "meat": 15071.099999999964
+        },
+        {
+          "day": 2,
+          "month": 3,
+          "year": 2019,
+          "animal": "SINGA",
+          "meat": 29861.699999999946
+        }
+      ]
+    }
+  }
+}
