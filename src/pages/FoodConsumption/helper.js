@@ -1,7 +1,7 @@
 export const generateHighchartsData = (dailyFoodConsumption = []) => {
 	const options = {
 		chart: {
-			type: 'column',
+      type: 'column',
 		},
 		title: {
 			text: null,
@@ -10,7 +10,15 @@ export const generateHighchartsData = (dailyFoodConsumption = []) => {
 			title: {
         text:'Day/Month'
       },
-			categories: [],
+      categories: [],
+      min: 0,
+      max: 19,
+      scrollbar: {
+            enabled: true
+      },
+      labels: {
+        overflow: 'justify'
+      },
 		},
 		yAxis: {
       title: {

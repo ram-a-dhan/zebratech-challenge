@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Grid, Box, Paper, Typography } from '@material-ui/core'
-import Highcharts from 'highcharts';
+import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 import { generateHighchartsData, dayMonthSort } from './helper';
 
