@@ -50,6 +50,7 @@ export const generateHighchartsData = (dailyFoodConsumption = []) => {
 	};
 
 	if (dailyFoodConsumption.length > 0) {
+    // date label array
 		options.xAxis.categories = Object.values(
       dailyFoodConsumption
         .reduce((acc, val) => {
@@ -61,6 +62,7 @@ export const generateHighchartsData = (dailyFoodConsumption = []) => {
         return `${el.day}/${el.month}`;
       });
 
+    // animal array for series looping
 		const animals = Object.values(
       dailyFoodConsumption
         .reduce((acc, val) => {
@@ -72,6 +74,7 @@ export const generateHighchartsData = (dailyFoodConsumption = []) => {
           return consumption.animal
         })
 
+    // date array for series looping
     let dates = Object.values(
       dailyFoodConsumption
         .reduce((acc, val) => {
@@ -83,6 +86,7 @@ export const generateHighchartsData = (dailyFoodConsumption = []) => {
         return el.date;
       });
 
+    // series looping
 		let animalSeries = animals.map(animal => {
       let data = dates.map(date => {
         return dailyFoodConsumption
@@ -100,6 +104,7 @@ export const generateHighchartsData = (dailyFoodConsumption = []) => {
       }
     })
 
+    // color codes according to example
     const colorCode = {
       'BERUANG'  : '#C23D36', 
       'SERIGALA'   : '#AEAEAE', 
@@ -110,11 +115,13 @@ export const generateHighchartsData = (dailyFoodConsumption = []) => {
       'LAINNYA': '#2F70B3',
     }
 
+    // adding color codes 
     animalSeries = animalSeries.map(animal => {
       animal.color = colorCode[animal.name]
       return animal
     })
 
+    // sort according to example
     const sortedBy = {
       'BERUANG'  : 0, 
       'SERIGALA'   : 1, 
